@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Log in · TaskPro{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+{% block content %}
+<main class="auth-wrap">
+  <section class="auth-card">
+    <h1 class="brand">TaskPro</h1>
+    <h2 class="auth-title">Log in to your tasks</h2>
+    <div id="formAlert" class="alert alert-danger d-none" role="alert"></div>
+    <form id="loginForm" novalidate>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input id="username" name="username" class="form-control" autocomplete="username" required autofocus>
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="mb-4">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" name="password" type="password" class="form-control" autocomplete="current-password" required>
+        <div class="invalid-feedback"></div>
+      </div>
+      <button class="btn btn-primary w-100" type="submit">Log in</button>
+    </form>
+    <p class="auth-switch">New here? <a href="{% url 'register' %}">Create an account</a></p>
+  </section>
+</main>
+{% endblock %}
+{% block scripts %}<script src="{% static 'js/auth.js' %}"></script>{% endblock %}
